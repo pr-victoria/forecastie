@@ -24,6 +24,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -127,7 +130,8 @@ public class MainActivity extends BaseActivity implements LocationListener {
     protected void onCreate(Bundle savedInstanceState) {
         // Initialize the associated SharedPreferences file with default values
         PreferenceManager.setDefaultValues(this, R.xml.prefs, false);
-
+        AppCenter.start(getApplication(), "{Your app secret here}",
+                  Analytics.class, Crashes.class);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         firstRun = prefs.getBoolean("firstRun", true);
 
