@@ -130,7 +130,7 @@ public class MainActivity extends BaseActivity implements LocationListener {
     protected void onCreate(Bundle savedInstanceState) {
         // Initialize the associated SharedPreferences file with default values
         PreferenceManager.setDefaultValues(this, R.xml.prefs, false);
-        AppCenter.start(getApplication(), "{Your app secret here}",
+        AppCenter.start(getApplication(), "4e3de3f9-77f3-41a6-85ba-5f481f4bcdd3",
                   Analytics.class, Crashes.class);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
         firstRun = prefs.getBoolean("firstRun", true);
